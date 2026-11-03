@@ -1,0 +1,14 @@
+name: Validate skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check SKILL.md frontmatter
+        run: .github/scripts/validate.sh SKILL.md
